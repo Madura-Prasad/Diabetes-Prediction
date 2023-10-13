@@ -1,7 +1,8 @@
 package com.diabetesPrediction.Controller;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -27,8 +28,7 @@ public class adminController {
 	@Autowired
 	private UserRepo userRepo;
 	
-	@Autowired
-	private BCryptPasswordEncoder passwordEncoder;
+	private static final Logger logger = LogManager.getLogger(adminController.class);
 	
 
 	@GetMapping("/")
@@ -63,56 +63,105 @@ public class adminController {
 	}
 
 	@PostMapping("/saveRole")
-	public String saveRole(@ModelAttribute User user, HttpSession session) {
-		User existingRole = userRepo.findByEmail(user.getEmail());
+    public String saveRole(@ModelAttribute User user, HttpSession session) {
+        try {
+            User existingRole = userRepo.findByEmail(user.getEmail());
 
-		if (existingRole != null) {
-			session.setAttribute("roleMsgError", "Email address already exists. Please use a different email.");
-			session.removeAttribute("msg");
-			return "redirect:/admin/addUsers";
-		} else {
-			User saveUser = adminService.saveRoles(user);
-			return "redirect:/admin/users";
-		}
-	}
+            if (existingRole != null) {
+                session.setAttribute("roleMsgError", "Email address already exists. Please use a different email.");
+                session.removeAttribute("msg");
+                // Log an INFO message
+                logger.info("Email address already exists: " + user.getEmail());
+                return "redirect:/admin/addUsers";
+            } else {
+                User saveUser = adminService.saveRoles(user);
+                // Log a DEBUG message
+                logger.debug("User saved successfully: " + saveUser.getEmail());
+                return "redirect:/admin/users";
+            }
+        } catch (Exception e) {
+            // Log the exception with an ERROR level
+            logger.error("An error occurred while processing the request.", e);
+
+            return "redirect:/errorPage";
+        }
+    }
+	
 	
 	@GetMapping("/editUsers/{id}")
-	public String editProducts(@PathVariable Long id,Model model) {
-		model.addAttribute("user", adminService.getUserByID(id));
-		return "AdminPanel/editPatient";
-	}
+    public String editProducts(@PathVariable Long id, Model model) {
+        try {
+            User user = adminService.getUserByID(id);
+            model.addAttribute("user", user);
+            
+            // Log an INFO message
+            logger.info("Editing user with ID: " + id);
+            
+            return "AdminPanel/editPatient";
+        } catch (Exception e) {
+            // Log the exception with an ERROR level
+            logger.error("An error occurred while editing the user with ID: " + id, e);
+            
+            // Log a WARN message for the edit failure
+            logger.warn("Failed to edit user with ID: " + id);
+            
+            return "redirect:/errorPage"; 
+        }
+    }
 	
-	@PostMapping("/editUsers/{id}")
-	public String updateAdmin(@PathVariable Long id,@ModelAttribute("user") User user,Model model )
-	{
-		User existingUser = adminService.getUserByID(id);
-		existingUser.setId(id);
-		existingUser.setName(user.getName());
-		existingUser.setEmail(user.getEmail());
-		existingUser.setState(user.getState());
-		existingUser.setMobile(user.getMobile());
-		existingUser.setRole(user.getRole());
-		
-		
-		// Check if a new password is provided
-	    if (user.getPassword() != null && !user.getPassword().isEmpty()) {
-	        // Hash the new password
-	        String hashedPassword = passwordEncoder.encode(user.getPassword());
 
-	        // Set the hashed password in the user object
-	        existingUser.setPassword(hashedPassword);
+	    @PostMapping("/editUsers/{id}")
+	    public String updateAdmin(@PathVariable Long id, @ModelAttribute("user") User user, Model model) {
+	        try {
+	            User existingUser = adminService.getUserByID(id);
+	            existingUser.setId(id);
+	            existingUser.setName(user.getName());
+	            existingUser.setEmail(user.getEmail());
+	            existingUser.setState(user.getState());
+	            existingUser.setMobile(user.getMobile());
+	            existingUser.setRole(user.getRole());
+	            existingUser.setPassword(user.getPassword());
+	            existingUser.setCreateYear(user.getCreateYear());
+
+	            // Log an INFO message before updating the user
+	            logger.info("Updating user with ID: " + id);
+
+	            adminService.updateUser(existingUser);
+
+	            // Log an INFO message after updating the user
+	            logger.info("User with ID " + id + " updated successfully.");
+
+	            return "redirect:/admin/users";
+	        } catch (Exception e) {
+	            // Log the exception with an ERROR level
+	            logger.error("An error occurred while updating the user with ID: " + id, e);
+	            
+	            // Log a WARN message for the user update failure
+	            logger.warn("Failed to update user with ID: " + id);
+
+	           
+	            return "redirect:/errorPage";
+	        }
 	    }
-	    
-	    existingUser.setCreateYear(user.getCreateYear());
+	 
 
-		adminService.updateUser(existingUser);
-		return "redirect:/admin/users";
-	}
-	
-	@GetMapping("/deleteUser/{id}")
-	public String deleteUser(@PathVariable Long id) {
-		adminService.deleteUserByID(id);
-		return "redirect:/admin/users";
-	}
-
+	    @GetMapping("/deleteUser/{id}")
+	    public String deleteUser(@PathVariable Long id) {
+	        try {
+	            adminService.deleteUserByID(id);
+	            
+	            // Log an INFO message
+	            logger.info("Deleted user with ID: " + id);
+	            
+	            return "redirect:/admin/users";
+	        } catch (Exception e) {
+	            // Log the exception with an ERROR level
+	            logger.error("An error occurred while deleting the user with ID: " + id, e);
+	            
+	            // Log a WARN message for the delete failure
+	            logger.warn("Failed to delete user with ID: " + id);
+	            
+	            return "redirect:/errorPage"; 
+	        }
+	    }
 }

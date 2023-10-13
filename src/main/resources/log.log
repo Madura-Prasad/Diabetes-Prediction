@@ -1,0 +1,8 @@
+[2023-10-14 01:10:16,137] http-nio-8080-exec-8 com.diabetesPrediction.Controller.adminController 83 DEBUG  - User saved successfully: maduraprasa000@gmail.com
+[2023-10-14 01:10:29,628] http-nio-8080-exec-1 com.diabetesPrediction.Controller.adminController 121 INFO   - Editing user with ID: 3
+[2023-10-14 01:10:36,999] http-nio-8080-exec-2 com.diabetesPrediction.Controller.adminController 121 INFO   - Editing user with ID: 5
+[2023-10-14 01:10:39,536] http-nio-8080-exec-4 com.diabetesPrediction.Controller.adminController 150 INFO   - Updating user with ID: 5
+[2023-10-14 01:10:39,539] http-nio-8080-exec-4 com.diabetesPrediction.Controller.adminController 155 INFO   - User with ID 5 updated successfully.
+[2023-10-14 01:10:53,731] http-nio-8080-exec-10 com.diabetesPrediction.Controller.adminController 183 INFO   - Deleted user with ID: 5
+[2023-10-14 01:10:54,928] http-nio-8080-exec-3 com.diabetesPrediction.Controller.adminController 183 INFO   - Deleted user with ID: 3
+[2023-10-14 01:10:56,615] http-nio-8080-exec-4 com.diabetesPrediction.Controller.adminController 183 INFO   - Deleted user with ID: 4
