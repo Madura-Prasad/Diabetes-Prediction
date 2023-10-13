@@ -58,7 +58,7 @@
             <div class="content">
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
-                        <h4 class="page-title">Add Doctor</h4>
+                        <h4 class="page-title">Add Doctor Details</h4>
                     </div>
                 </div>
                 <div class="row">
@@ -66,12 +66,18 @@
                         <br><br>
                         <h5 class="text-danger">**Doctor details can only be added at this time. Thank you for your understanding.</h5>
                         <br><br>
+                        <th:block th:if="${user!=null}">
+							<a th:href="@{'/user/account'}" class="nav-link">
+								<div class="text-light">Hello, <span class="fw-bold text-capitalize text-light" th:text="${user.name}"></span>
+								</div>
+							</a>
+						</th:block>
                         <form>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label>First Name <span class="text-danger">*</span></label>
-                                        <input class="form-control" type="text">
+                                        <label>Name <span class="text-danger">*</span></label>
+                                        <input class="form-control" type="text" th:field="*{user.name}">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">

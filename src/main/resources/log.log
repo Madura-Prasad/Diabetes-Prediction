@@ -9,3 +9,4 @@
 [2023-10-14 02:26:11,557] http-nio-8080-exec-3 com.diabetesPrediction.Controller.adminController 116 INFO   - Editing user with Name: Madura Prasad
 [2023-10-14 02:26:20,438] http-nio-8080-exec-4 com.diabetesPrediction.Controller.adminController 145 INFO   - Updating user with Name: Madura Prasa
 [2023-10-14 02:26:20,442] http-nio-8080-exec-4 com.diabetesPrediction.Controller.adminController 150 INFO   - User with Name Madura Prasa updated successfully.
+[2023-10-14 02:27:21,127] http-nio-8080-exec-8 com.diabetesPrediction.Controller.adminController 69 INFO   - Retrieved 4 messages

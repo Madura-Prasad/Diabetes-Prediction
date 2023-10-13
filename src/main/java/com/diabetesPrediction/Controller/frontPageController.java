@@ -149,7 +149,7 @@ public class frontPageController {
 		return "signUp";
 	}
 	
-	@GetMapping("/doctor-list")
+	@GetMapping("/doctorDetails")
 	public String doctorList(Model model, Principal principal) {
 		boolean isLoggedIn = principal != null;
 
@@ -160,7 +160,7 @@ public class frontPageController {
 	        User user =userRepo.findByEmail(email);
 	        model.addAttribute("user", user);
 	    }
-		return "doctorList";
+		return "doctorDetails";
 	}
 	
 	
