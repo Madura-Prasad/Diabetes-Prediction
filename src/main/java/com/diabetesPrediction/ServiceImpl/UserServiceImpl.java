@@ -7,7 +7,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+
+import com.diabetesPrediction.Model.Message;
 import com.diabetesPrediction.Model.User;
+import com.diabetesPrediction.Repository.MessageRepo;
 import com.diabetesPrediction.Repository.UserRepo;
 import com.diabetesPrediction.Service.UserService;
 import jakarta.servlet.http.HttpSession;
@@ -18,6 +21,9 @@ public class UserServiceImpl implements UserService{
 	
 	@Autowired
 	private UserRepo userRepo;
+	
+	@Autowired
+	private MessageRepo messageRepo;
 
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
@@ -40,7 +46,11 @@ public class UserServiceImpl implements UserService{
 		session.removeAttribute("msgError");
 	}
 
-	
+	@Override
+	public Message saveMessages(Message message) {
+		Message newMessage = messageRepo.save(message);
+		return newMessage;
+	}
 
 
 }

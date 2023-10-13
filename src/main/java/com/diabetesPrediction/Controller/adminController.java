@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import java.util.List;
+import com.diabetesPrediction.Model.Message;
 import com.diabetesPrediction.Model.User;
 import com.diabetesPrediction.Repository.UserRepo;
 import com.diabetesPrediction.Service.AdminService;
@@ -56,11 +58,27 @@ public class adminController {
 	public String appointment() {
 		return "AdminPanel/appointment";
 	}
+	
+	 @GetMapping("/messages")
+	    public String messages(Model model) {
+	        try {
+	            List<Message> messages = adminService.getAllMessages();
+	            model.addAttribute("message", adminService.getAllMessages());
+	            
+	            // Log an INFO message for successful retrieval of messages
+	            logger.info("Retrieved " + messages.size() + " messages");
 
-	@GetMapping("/messages")
-	public String messages() {
-		return "AdminPanel/messages";
-	}
+	            return "AdminPanel/messages";
+	        } catch (Exception e) {
+	            // Log the exception with an ERROR level
+	            logger.error("An error occurred while retrieving messages", e);
+
+	            // Log a WARN message for the retrieval failure
+	            logger.warn("Failed to retrieve messages.");
+
+	            return "redirect:/errorPage";
+	        }
+	    }
 
 	@PostMapping("/saveRole")
     public String saveRole(@ModelAttribute User user, HttpSession session) {
@@ -95,7 +113,7 @@ public class adminController {
             model.addAttribute("user", user);
             
             // Log an INFO message
-            logger.info("Editing user with ID: " + id);
+            logger.info("Editing user with Name: " + user.getName());
             
             return "AdminPanel/editPatient";
         } catch (Exception e) {
@@ -124,12 +142,12 @@ public class adminController {
 	            existingUser.setCreateYear(user.getCreateYear());
 
 	            // Log an INFO message before updating the user
-	            logger.info("Updating user with ID: " + id);
+	            logger.info("Updating user with Name: " + existingUser.getName());
 
 	            adminService.updateUser(existingUser);
 
 	            // Log an INFO message after updating the user
-	            logger.info("User with ID " + id + " updated successfully.");
+	            logger.info("User with Name " + existingUser.getName() + " updated successfully.");
 
 	            return "redirect:/admin/users";
 	        } catch (Exception e) {
