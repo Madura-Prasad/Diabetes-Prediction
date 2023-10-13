@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- edit-patient24:07-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" type="image/x-icon" href="../../assets/admin/img/favicon.ico">
+    <title>DocFinder - Admin Panel</title>
+    <link rel="stylesheet" type="text/css" href="../../assets/admin/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/admin/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/admin/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/admin/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/admin/css/style.css">
+    <!--[if lt IE 9]>
+		<script src="assets/js/html5shiv.min.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <div class="header">
+			<div class="header-left">
+				<a th:href="@{'/admin/'}" class="logo">
+					<img src="../../assets/admin/img/logo.png" width="35" height="35" alt=""> <span>DocFinder</span>
+				</a>
+			</div>
+			<a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
+            <ul class="nav user-menu float-right">
+            </ul>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-inner slimscroll">
+                <div id="sidebar-menu" class="sidebar-menu">
+                    <ul>
+                        <li >
+                            <a th:href="@{'/admin/'}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+                        </li>
+                        <li class="active">
+                            <a th:href="@{'/admin/users'}"><i class="fa fa-user"></i> <span>Manage Roles</span></a>
+                        </li>
+                        <li>
+                            <a th:href="@{'/admin/appointment'}"><i class="fa fa-calendar-check-o"></i> <span>Appointments</span></a>
+                        </li>
+                        <li>
+                            <a th:href="@{'/admin/messages'}"><i class="fa fa-envelope"></i> <span>Messages</span></a>
+                        </li>
+                        <li>
+                            <a href="/logout"><i class="fa fa-sign-out"></i> <span>Logout</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <h4 class="page-title">Edit Role</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <form class="addRole-form" th:action="@{/admin/editUsers/{id}(id=${user.id})}" th:object="${user}" method="POST">
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label>Name <span class="text-danger">*</span></label>
+										<input class="form-control" type="text" name="name" id="name" th:field="*{name}">
+										<span class="error-message text-danger fw-bold" id="username-error"></span>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label>Email <span class="text-danger">*</span></label>
+										<input class="form-control" type="text" name="email" id="email" th:field="*{email}">
+										<span class="error-message text-danger fw-bold" id="email-error"></span>
+										<th:block th:if="${session.roleMsgError}">
+											<p class="fw-bold text-danger" id="existMessage">
+												[[${session.roleMsgError}]]
+											</p>
+										</th:block>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label>Mobile Number <span class="text-danger">*</span></label>
+										<input class="form-control" type="text" name="mobile" id="mobile" th:field="*{mobile}">
+										<span class="error-message text-danger fw-bold" id="mobile-error"></span>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label>Role <span class="text-danger">*</span></label>
+										<select class="form-control select" name="role" th:field="*{role}">
+											<option value="ROLE_USER">USER</option>
+											<option value="ROLE_ADMIN">ADMIN</option>
+											<option value="ROLE_DOCTOR">DOCTOR</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label>State <span class="text-danger">*</span></label>
+										<input class="form-control" type="text" name="state" id="state" th:field="*{state}">
+										<span class="error-message text-danger fw-bold" id="state-error"></span>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label>Password <span class="text-danger">* Password Can't Update</span></label>
+										<input class="form-control" type="text" name="password" id="password" th:field="*{password}" readonly>
+										<span class="error-message text-danger fw-bold" id="password-error"></span>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label>Create Month <span class="text-danger">* Create Month can't Update</span></label>
+										<input class="form-control" type="text" name="createYear"  th:field="*{createYear}" readonly >
+										<span class="error-message text-danger fw-bold" id="password-error"></span>
+									</div>
+								</div>
+								<div class="m-t-20 text-center col-sm-12">
+									<button type="submit" id="addRole-button" class="btn btn-primary submit-btn">Update Role</button>
+								</div>
+						</form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+		document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector(".addRole-form");
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const passwordInput = document.getElementById("password");
+        const stateInput = document.getElementById("state");
+        const mobileInput = document.getElementById("mobile");
+
+        form.addEventListener("submit", function (event) {
+            let valid = true;
+
+            // Empty field validation
+            clearErrorMessage("username-error");
+            if (nameInput.value.trim() === "") {
+                valid = false;
+                displayErrorMessage("username-error", "Please enter a name.");
+            }
+             clearErrorMessage("state-error");
+            if (stateInput.value.trim() === "") {
+                valid = false;
+                displayErrorMessage("state-error", "Please enter a state.");
+            }
+             clearErrorMessage("mobile-error");
+            if (mobileInput.value.trim() === "") {
+                valid = false;
+                displayErrorMessage("mobile-error", "Please enter a mobile.");
+            }
+
+            clearErrorMessage("email-error");
+            if (emailInput.value.trim() === "") {
+                valid = false;
+                displayErrorMessage("email-error", "Please enter an email address.");
+            } else if (!validateEmail(emailInput.value.trim())) {
+                valid = false;
+                displayErrorMessage("email-error", "Please enter a valid email address.");
+            }
+
+            clearErrorMessage("password-error");
+            if (passwordInput.value.trim() === "") {
+                valid = false;
+                displayErrorMessage("password-error", "Please enter a password.");
+            } else if (passwordInput.value.length < 6) {
+                valid = false;
+                displayErrorMessage("password-error", "Password must be at least 6 characters long.");
+            }
+
+            if (!valid) {
+                event.preventDefault(); // Prevent form submission
+            }
+        });
+
+        // Email validation function
+        function validateEmail(email) {
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            return emailPattern.test(email);
+        }
+
+        // Function to display error messages
+        function displayErrorMessage(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.textContent = message;
+        }
+
+        // Function to clear error messages
+        function clearErrorMessage(elementId) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.textContent = "";
+        }
+    });
+    
+		setTimeout(function () {
+			// Hide the error message (if present)
+			var errorMessage = document.getElementById('successMessage');
+			if (errorMessage) {
+				errorMessage.style.display = 'none';
+			}
+
+			// Hide the logout message (if present)
+			var logoutMessage = document.getElementById('existMessage');
+			if (logoutMessage) {
+				logoutMessage.style.display = 'none';
+			}
+		}, 5000); // 5000 milliseconds = 5 seconds
+	</script>
+    
+    <div class="sidebar-overlay" data-reff=""></div>
+    <script src="../../assets/admin/js/jquery-3.2.1.min.js"></script>
+	<script src="../../assets/admin/js/popper.min.js"></script>
+    <script src="../../assets/admin/js/bootstrap.min.js"></script>
+    <script src="../../assets/admin/js/jquery.slimscroll.js"></script>
+    <script src="../../assets/admin/js/select2.min.js"></script>
+	<script src="../../assets/admin/js/moment.min.js"></script>
+	<script src="../../assets/admin/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="../../assets/admin/js/app.js"></script>
+</body>
+
+
+<!-- edit-patient24:07-->
+</html>

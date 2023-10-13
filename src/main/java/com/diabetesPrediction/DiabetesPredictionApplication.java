@@ -8,6 +8,7 @@ public class DiabetesPredictionApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DiabetesPredictionApplication.class, args);
+		System.out.println("Mission Ignition: The Project is Now Live!");
 	}
 
 }

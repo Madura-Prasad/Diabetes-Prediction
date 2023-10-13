@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- patients23:17-->
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+	<link rel="shortcut icon" type="image/x-icon" href="../assets/admin/img/favicon.ico">
+	<title>DocFinder - Admin Panel</title>
+	<link rel="stylesheet" type="text/css" href="../../assets/admin/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../assets/admin/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../../assets/admin/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href="../../assets/admin/css/style.css">
+	<!--[if lt IE 9]>
+		<script src="assets/js/html5shiv.min.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="main-wrapper">
+		<div class="header">
+			<div class="header-left">
+				<a th:href="@{'/admin/'}" class="logo">
+					<img src="../assets/admin/img/logo.png" width="35" height="35" alt=""> <span>DocFinder</span>
+				</a>
+			</div>
+			<a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+			<a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
+			<ul class="nav user-menu float-right">
+			</ul>
+		</div>
+		<div class="sidebar" id="sidebar">
+			<div class="sidebar-inner slimscroll">
+				<div id="sidebar-menu" class="sidebar-menu">
+					<ul>
+						<li>
+							<a th:href="@{'/admin/'}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+						</li>
+						<li class="active">
+							<a th:href="@{'/admin/users'}"><i class="fa fa-user"></i> <span>Manage Roles</span></a>
+						</li>
+						<li>
+							<a th:href="@{'/admin/appointment'}"><i class="fa fa-calendar-check-o"></i>
+								<span>Appointments</span></a>
+						</li>
+						<li>
+							<a th:href="@{'/admin/messages'}"><i class="fa fa-envelope"></i> <span>Messages</span></a>
+						</li>
+						<li>
+							<a href="/logout"><i class="fa fa-sign-out"></i> <span>Logout</span></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="page-wrapper">
+			<div class="content">
+				<div class="row">
+					<div class="col-sm-4 col-3">
+						<h4 class="page-title">Manage Roles</h4>
+					</div>
+					<div class="col-sm-8 col-9 text-right m-b-20">
+						<a th:href="@{'/admin/addUsers'}" class="btn btn btn-primary btn-rounded float-right"><i
+								class="fa fa-plus"></i> Add Role</a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="card-box">
+							<div class="card-block">
+								<div class="table-responsive">
+									<table class="datatable table table-stripped ">
+										<thead>
+											<tr>
+												<th>Name</th>
+												<th>Email</th>
+												<th>State</th>
+												<th>Mobile</th>
+												<th>Create Month</th>
+												<th>Role</th>
+												<th class="text-right">Action</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr th:each="user: ${user}">
+												<td th:text="${user.name}"></td>
+												<td th:text="${user.email}"></td>
+												<td th:text="${user.state}"></td>
+												<td th:text="${user.mobile}"></td>
+												<td th:text="${user.createYear}"></td>
+												<td th:text="${user.role}"></td>
+												<td class="text-right">
+													<a class="mr-3" th:href="@{/admin/editUsers/{id}(id=${user.id})}"><i
+															class="fa fa-pencil m-r-5"></i> Edit</a>
+													<a th:href="@{/admin/deleteUser/{id}(id=${user.id})}" data-toggle="modal"><i
+															class="fa fa-trash-o m-r-5"></i> Delete</a>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar-overlay" data-reff=""></div>
+	<script src="../../assets/admin/js/jquery-3.2.1.min.js"></script>
+	<script src="../../assets/admin/js/popper.min.js"></script>
+	<script src="../../assets/admin/js/bootstrap.min.js"></script>
+	<script src="../../assets/admin/js/jquery.dataTables.min.js"></script>
+	<script src="../../assets/admin/js/dataTables.bootstrap4.min.js"></script>
+	<script src="../../assets/admin/js/jquery.slimscroll.js"></script>
+	<script src="../../assets/admin/js/app.js"></script>
+</body>
+
+
+<!-- patients23:19-->
+
+</html>
