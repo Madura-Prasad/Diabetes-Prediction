@@ -2,6 +2,7 @@ package com.diabetesPrediction.Service;
 
 import java.util.List;
 
+import com.diabetesPrediction.Model.Book;
 import com.diabetesPrediction.Model.Message;
 import com.diabetesPrediction.Model.User;
 
@@ -18,6 +19,8 @@ public interface AdminService {
 	void deleteUserByID(Long id);
 	
 	List<Message> getAllMessages();
+	
+	List<Book> getAllAppointments();
 
 	
 }

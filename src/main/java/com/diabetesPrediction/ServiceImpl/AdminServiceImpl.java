@@ -5,8 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.diabetesPrediction.Model.Book;
 import com.diabetesPrediction.Model.Message;
 import com.diabetesPrediction.Model.User;
+import com.diabetesPrediction.Repository.BookRepo;
 import com.diabetesPrediction.Repository.MessageRepo;
 import com.diabetesPrediction.Repository.UserRepo;
 import com.diabetesPrediction.Service.AdminService;
@@ -19,6 +21,9 @@ public class AdminServiceImpl implements AdminService {
 
 	@Autowired
 	private MessageRepo messageRepo;
+	
+	@Autowired
+	private BookRepo bookRepo;
 
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
@@ -57,6 +62,11 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public List<Message> getAllMessages() {
 		return messageRepo.findAll();
+	}
+
+	@Override
+	public List<Book> getAllAppointments() {
+		return bookRepo.findAll();
 	}
 
 }

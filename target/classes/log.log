@@ -318,3 +318,26 @@ java.util.NoSuchElementException: No value present
 [2023-10-15 04:37:36,007] http-nio-8080-exec-8 com.diabetesPrediction.Controller.userController 88 INFO   - Accessed the booking details page for doctor with ID: 3 for user: maduraprasa00@gmail.com
 [2023-10-15 04:37:42,138] http-nio-8080-exec-5 com.diabetesPrediction.Controller.userController 114 INFO   - Saved booking details for doctor with ID: 3
 [2023-10-15 04:37:42,165] http-nio-8080-exec-1 com.diabetesPrediction.Controller.frontPageController 90 INFO   - Displayed the list of 2
+[2023-10-15 04:39:07,415] http-nio-8080-exec-1 com.diabetesPrediction.Controller.frontPageController 90 INFO   - Displayed the list of 2
+[2023-10-15 04:39:09,662] http-nio-8080-exec-10 com.diabetesPrediction.Controller.frontPageController 121 INFO   - Displayed doctor details for doctor with ID: 2 for user: maduraprasa00@gmail.com
+[2023-10-15 04:39:11,292] http-nio-8080-exec-5 com.diabetesPrediction.Controller.userController 87 INFO   - Accessed the booking details page for doctor with ID: 2 for user: maduraprasa00@gmail.com
+[2023-10-15 04:39:21,245] http-nio-8080-exec-5 com.diabetesPrediction.Controller.userController 55 INFO   - Accessed the account page for user: maduraprasa00@gmail.com
+[2023-10-15 14:12:31,793] http-nio-8080-exec-4 com.diabetesPrediction.Controller.frontPageController 90 INFO   - Displayed the list of 2
+[2023-10-15 14:12:34,138] http-nio-8080-exec-9 com.diabetesPrediction.Controller.frontPageController 121 INFO   - Displayed doctor details for doctor with ID: 3 for user: guest
+[2023-10-15 14:12:51,235] http-nio-8080-exec-7 com.diabetesPrediction.Controller.adminController 222 INFO   - Deleted user with ID: 13
+[2023-10-15 14:12:52,576] http-nio-8080-exec-8 com.diabetesPrediction.Controller.adminController 222 INFO   - Deleted user with ID: 12
+[2023-10-15 14:12:53,995] http-nio-8080-exec-1 com.diabetesPrediction.Controller.adminController 222 INFO   - Deleted user with ID: 11
+[2023-10-15 14:13:16,313] http-nio-8080-exec-8 com.diabetesPrediction.Controller.adminController 151 DEBUG  - User saved successfully: perera@gamil.com
+[2023-10-15 14:13:27,059] http-nio-8080-exec-5 com.diabetesPrediction.Controller.adminController 151 DEBUG  - User saved successfully: maduraprasa00@gmail.com
+[2023-10-15 14:13:34,542] http-nio-8080-exec-10 com.diabetesPrediction.Controller.frontPageController 90 INFO   - Displayed the list of 2
+[2023-10-15 14:14:06,015] http-nio-8080-exec-10 com.diabetesPrediction.Controller.adminController 84 INFO   - Displayed saved doctor details for user: perera@gamil.com
+[2023-10-15 14:14:32,762] http-nio-8080-exec-9 com.diabetesPrediction.Controller.adminController 132 INFO   - Doctor details saved successfully with Name : Perera
+[2023-10-15 14:14:40,429] http-nio-8080-exec-9 com.diabetesPrediction.Controller.frontPageController 90 INFO   - Displayed the list of 1
+[2023-10-15 14:14:43,639] http-nio-8080-exec-9 com.diabetesPrediction.Controller.frontPageController 121 INFO   - Displayed doctor details for doctor with ID: 1 for user: guest
+[2023-10-15 14:15:18,654] http-nio-8080-exec-1 com.diabetesPrediction.Controller.frontPageController 90 INFO   - Displayed the list of 1
+[2023-10-15 14:15:20,750] http-nio-8080-exec-10 com.diabetesPrediction.Controller.frontPageController 121 INFO   - Displayed doctor details for doctor with ID: 1 for user: maduraprasa00@gmail.com
+[2023-10-15 14:15:22,830] http-nio-8080-exec-6 com.diabetesPrediction.Controller.userController 87 INFO   - Accessed the booking details page for doctor with ID: 1 for user: maduraprasa00@gmail.com
+[2023-10-15 14:15:36,528] http-nio-8080-exec-9 com.diabetesPrediction.Controller.userController 113 INFO   - Saved booking details for doctor with ID: 1
+[2023-10-15 14:15:36,553] http-nio-8080-exec-4 com.diabetesPrediction.Controller.frontPageController 90 INFO   - Displayed the list of 1
+[2023-10-15 14:17:58,137] http-nio-8080-exec-3 com.diabetesPrediction.Controller.userController 55 INFO   - Accessed the account page for user: maduraprasa00@gmail.com
+[2023-10-15 14:18:05,748] http-nio-8080-exec-9 com.diabetesPrediction.Controller.adminController 123 INFO   - Retrieved 8 messages

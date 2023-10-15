@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import java.security.Principal;
 import java.util.List;
+
+import com.diabetesPrediction.Model.Book;
 import com.diabetesPrediction.Model.Message;
 import com.diabetesPrediction.Model.User;
 import com.diabetesPrediction.Repository.UserRepo;
@@ -93,7 +95,8 @@ public class adminController {
 	@GetMapping("/appointment")
 	public String appointment(Model model, Principal principal) {
 		boolean isLoggedIn = principal != null;
-
+		
+	
 		model.addAttribute("isLoggedIn", isLoggedIn);
 
 		if (isLoggedIn) {
@@ -101,6 +104,8 @@ public class adminController {
 			User user = userRepo.findByEmail(email);
 			model.addAttribute("user", user);
 		}
+		List<Book> appointmentsBooks=adminService.getAllAppointments();
+		model.addAttribute("appointment", appointmentsBooks);
 		return "AdminPanel/appointment";
 	}
 
