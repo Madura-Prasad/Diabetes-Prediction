@@ -1,6 +1,8 @@
 package com.diabetesPrediction.Controller;
 
 import java.security.Principal;
+import java.util.List;
+
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +13,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.diabetesPrediction.Model.Book;
 import com.diabetesPrediction.Model.DoctorDetails;
 import com.diabetesPrediction.Model.User;
+import com.diabetesPrediction.Repository.BookRepo;
 import com.diabetesPrediction.Repository.DoctorDetailsRepo;
 import com.diabetesPrediction.Repository.UserRepo;
 import com.diabetesPrediction.Service.DoctorDetailsService;
@@ -32,6 +37,9 @@ public class doctorController {
 
 	@Autowired
 	private DoctorDetailsRepo doctorDetailsRepo;
+	
+	@Autowired
+	private BookRepo bookRepo;
 
 	private static final Logger logger = LogManager.getLogger(adminController.class);
 
@@ -113,7 +121,13 @@ public class doctorController {
 			String email = principal.getName();
 			DoctorDetails details = doctorDetailsRepo.findByEmail(email);
 			model.addAttribute("doctor", details);
+			
+			// Fetch the appointments for the logged-in doctor
+	        List<Book> doctorAppointments = bookRepo.findByDoctorName(details.getName());
+	        model.addAttribute("doctorAppointments", doctorAppointments);
 		}
+		
+		
 		return "DoctorPanel/appointments";
 	}
 
