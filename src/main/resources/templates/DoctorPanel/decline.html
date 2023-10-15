@@ -85,14 +85,14 @@
 			<div class="content">
 				<div class="row">
 					<div class="col-lg-8 offset-lg-2">
-						<h4 class="page-title">Appointment Approve Details</h4>
+						<h4 class="page-title">Appointment Decline Details</h4>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-lg-8 offset-lg-2">
 						<br><br>
 						<br><br>
-						<form class="addRole-form" th:action="@{/doctor/appointments/approve/{id}(id=${doctorAppointments.id})}" th:object="${doctorAppointments}" method="POST">
+						<form class="addRole-form" th:action="@{/doctor/appointments/decline/{id}(id=${doctorAppointments.id})}" th:object="${doctorAppointments}" method="POST">
 							<div class="row">
 								<div class="col-sm-6">
 									<div class="form-group">
@@ -131,7 +131,7 @@
 								</div>
 								<div class="col-sm-6"></div>
 									<div class="m-t-20 text-center">
-										<button class="btn btn-primary submit-btn" type="submit">Approve</button>
+										<button class="btn btn-danger submit-btn" type="submit">Decline</button>
 									</div>
 						</form>
 					</div>

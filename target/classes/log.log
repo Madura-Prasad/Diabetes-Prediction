@@ -189,13 +189,3 @@
 [2023-10-15 22:56:57,079] http-nio-8080-exec-1 com.diabetesPrediction.Controller.adminController 135 INFO   - Displayed appointments for doctor: Perera
 [2023-10-15 22:57:50,987] http-nio-8080-exec-1 com.diabetesPrediction.Controller.adminController 135 INFO   - Displayed appointments for doctor: Perera
 [2023-10-15 22:58:16,667] http-nio-8080-exec-1 com.diabetesPrediction.Controller.adminController 135 INFO   - Displayed appointments for doctor: Perera
-[2023-10-15 23:00:26,607] http-nio-8080-exec-1 com.diabetesPrediction.Controller.adminController 135 INFO   - Displayed appointments for doctor: Perera
-[2023-10-15 23:00:37,562] http-nio-8080-exec-8 com.diabetesPrediction.Controller.adminController 135 INFO   - Displayed appointments for doctor: Perera
-[2023-10-15 23:00:39,688] http-nio-8080-exec-5 com.diabetesPrediction.Controller.adminController 261 INFO   - Accessed the decline approval page for appointment with ID: 2
-[2023-10-15 23:00:45,950] http-nio-8080-exec-3 com.diabetesPrediction.Controller.adminController 223 INFO   - Approved appointment with ID: 2 for user: Madura
-[2023-10-15 23:00:45,976] http-nio-8080-exec-2 com.diabetesPrediction.Controller.adminController 135 INFO   - Displayed appointments for doctor: Perera
-[2023-10-15 23:01:18,797] http-nio-8080-exec-1 com.diabetesPrediction.Controller.adminController 135 INFO   - Displayed appointments for doctor: Perera
-[2023-10-15 23:01:29,407] http-nio-8080-exec-8 com.diabetesPrediction.Controller.adminController 135 INFO   - Displayed appointments for doctor: Perera
-[2023-10-15 23:01:31,023] http-nio-8080-exec-5 com.diabetesPrediction.Controller.adminController 261 INFO   - Accessed the decline approval page for appointment with ID: 2
-[2023-10-15 23:01:36,764] http-nio-8080-exec-4 com.diabetesPrediction.Controller.adminController 311 INFO   - Declined appointment with ID: 2 for user: Madura
-[2023-10-15 23:01:36,788] http-nio-8080-exec-2 com.diabetesPrediction.Controller.adminController 135 INFO   - Displayed appointments for doctor: Perera

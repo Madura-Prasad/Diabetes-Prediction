@@ -100,7 +100,6 @@
 										<th>Doctor Name</th>
 										<th>Doctor Specific Area</th>
 										<th>Status</th>
-										<th class="text-right">Action</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -110,15 +109,30 @@
 										<td th:text="${doctorAppointments.userMobile}"></td>
 										<td th:text="${doctorAppointments.doctorName}"></td>
 										<td th:text="${doctorAppointments.doctorSpecificAre}"></td>
-										<td><span class="custom-badge status-green" th:text="${doctorAppointments.status}"></span></td>
-										
+										<td>
+											<div th:if="${doctorAppointments.status == 'Approved'}">
+												<span class="custom-badge status-green">Approved</span>
+											</div>
+											<div th:if="${doctorAppointments.status == 'Declined'}">
+												<span class="custom-badge status-red">Declined</span>
+											</div>
+											<div th:if="${doctorAppointments.status == ''}">
+												<span>Not Updated</span>
+											</div>
+										</td>
+
 										<td class="text-right">
-											<a class="mr-3"
-												th:href="@{/doctor/appointments/{id} (id=${doctorAppointments.id})}">
-												<i class="fa fa-check-circle-o m-r-5"></i> Approve
-											</a>
-											<a href="#" data-toggle="modal" data-target="#delete_patient">
-												<i class="fa fa-times-circle-o m-r-5"></i> Decline</a>
+											<div
+												th:if="${doctorAppointments.status == null or doctorAppointments.status == ''}">
+												<a class="mr-3"
+													th:href="@{/doctor/appointments/approve/{id} (id=${doctorAppointments.id})}">
+													<i class="fa fa-check-circle-o m-r-5"></i> Approve
+												</a>
+												<a
+													th:href="@{/doctor/appointments/decline/{id} (id=${doctorAppointments.id})}">
+													<i class="fa fa-times-circle-o m-r-5"></i> Decline
+												</a>
+											</div>
 										</td>
 									</tr>
 								</tbody>

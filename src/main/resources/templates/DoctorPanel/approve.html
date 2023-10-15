@@ -7,13 +7,13 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-	<link rel="shortcut icon" type="image/x-icon" href="../../assets/doctor/img/favicon.ico">
+	<link rel="shortcut icon" type="image/x-icon" href="../../../assets/doctor/img/favicon.ico">
 	<title>DocFinder - Doctor Panel</title>
-	<link rel="stylesheet" type="text/css" href="../../assets/doctor/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../../assets/doctor/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="../../assets/doctor/css/select2.min.css">
-	<link rel="stylesheet" type="text/css" href="../../assets/doctor/css/bootstrap-datetimepicker.min.css">
-	<link rel="stylesheet" type="text/css" href="../../assets/doctor/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../../assets/doctor/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../assets/doctor/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../assets/doctor/css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../assets/doctor/css/bootstrap-datetimepicker.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../assets/doctor/css/style.css">
 	<!--[if lt IE 9]>
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
@@ -25,7 +25,7 @@
 		<div class="header">
 			<div class="header-left">
 				<a th:href="@{'/doctot/'}" class="logo">
-					<img src="../../assets/doctor/img/logo.png" width="35" height="35" alt=""> <span>DodFinder</span>
+					<img src="../../../assets/doctor/img/logo.png" width="35" height="35" alt=""> <span>DodFinder</span>
 				</a>
 			</div>
 			<a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
@@ -92,7 +92,7 @@
 					<div class="col-lg-8 offset-lg-2">
 						<br><br>
 						<br><br>
-						<form class="addRole-form" th:action="@{/doctor/appointments/{id}(id=${doctorAppointments.id})}" th:object="${doctorAppointments}" method="POST">
+						<form class="addRole-form" th:action="@{/doctor/appointments/approve/{id}(id=${doctorAppointments.id})}" th:object="${doctorAppointments}" method="POST">
 							<div class="row">
 								<div class="col-sm-6">
 									<div class="form-group">
@@ -140,14 +140,14 @@
 		</div>
 	</div>
 	<div class="sidebar-overlay" data-reff=""></div>
-	<script src="../../assets/doctor/js/jquery-3.2.1.min.js"></script>
-	<script src="../../assets/doctor/js/popper.min.js"></script>
-	<script src="../../assets/doctor/js/bootstrap.min.js"></script>
-	<script src="../../assets/doctor/js/jquery.slimscroll.js"></script>
-	<script src="../../assets/doctor/js/select2.min.js"></script>
-	<script src="../../assets/doctor/js/moment.min.js"></script>
-	<script src="../../assets/doctor/js/bootstrap-datetimepicker.min.js"></script>
-	<script src="../../assets/doctor/js/app.js"></script>
+	<script src="../../../assets/doctor/js/jquery-3.2.1.min.js"></script>
+	<script src="../../../assets/doctor/js/popper.min.js"></script>
+	<script src="../../../assets/doctor/js/bootstrap.min.js"></script>
+	<script src="../../../assets/doctor/js/jquery.slimscroll.js"></script>
+	<script src="../../../assets/doctor/js/select2.min.js"></script>
+	<script src="../../../assets/doctor/js/moment.min.js"></script>
+	<script src="../../../assets/doctor/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="../../../assets/doctor/js/app.js"></script>
 </body>
 
 
