@@ -239,7 +239,7 @@ public class frontPageController {
 					SimpleMailMessage mailMessage = new SimpleMailMessage();
 					mailMessage.setSubject("Welcome to DocFinder, " + user.getName() + "! Registration Successful");
 					mailMessage.setTo(user.getEmail());
-					mailMessage.setFrom("maduraprasa00@gmail.com");
+					mailMessage.setFrom("docfinder.xyz@gmail.com");
 					String emailContent = "Dear " + user.getName() + ",\n\n"
 							+ "Thank you for registering with DocFinder. Your registration was successful, and we're excited to welcome you to our platform!\n\n"
 							+

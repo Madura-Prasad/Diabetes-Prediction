@@ -31,7 +31,12 @@ public class DoctorDetailsImpl implements DoctorDetailsService{
 	
 	
 	public List<Book> getBooksForLoggedInDoctor(String doctorName) {
-	    return bookRepo .findByDoctorName(doctorName);
+	    return bookRepo.findByDoctorName(doctorName);
+	}
+
+	@Override
+	public Book getappointmentByID(Long id) {
+		return bookRepo.findById(id).get();
 	}
 
 

@@ -1,6 +1,0 @@
-[2023-10-15 14:57:44,879] http-nio-8080-exec-1 com.diabetesPrediction.Controller.adminController 112 INFO   - Displayed 3 appointments for user: admin@gmail.com
-[2023-10-15 16:05:55,526] http-nio-8080-exec-1 com.diabetesPrediction.Controller.adminController 112 INFO   - Displayed 3 appointments for user: admin@gmail.com
-[2023-10-15 16:06:24,435] http-nio-8080-exec-4 com.diabetesPrediction.Controller.adminController 142 INFO   - Retrieved 8 messages
-[2023-10-15 16:06:33,668] http-nio-8080-exec-8 com.diabetesPrediction.Controller.adminController 112 INFO   - Displayed 3 appointments for user: admin@gmail.com
-[2023-10-15 16:06:38,227] http-nio-8080-exec-1 com.diabetesPrediction.Controller.adminController 112 INFO   - Displayed 3 appointments for user: admin@gmail.com
-[2023-10-15 16:06:39,268] http-nio-8080-exec-5 com.diabetesPrediction.Controller.adminController 142 INFO   - Retrieved 8 messages

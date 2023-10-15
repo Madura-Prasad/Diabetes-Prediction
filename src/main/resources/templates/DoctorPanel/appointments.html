@@ -98,26 +98,27 @@
 										<th>Patient Email</th>
 										<th>Patient Mobile</th>
 										<th>Doctor Name</th>
-										<th>Doctor Email</th>
 										<th>Doctor Specific Area</th>
-										<th>Appointment Time</th>
+										<th>Status</th>
 										<th class="text-right">Action</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr th:each="appointment : ${doctorAppointments}">
-										<td th:text="${appointment.userName}"></td>
-										<td th:text="${appointment.userEmail}"></td>
-										<td th:text="${appointment.userMobile}"></td>
-										<td th:text="${appointment.doctorName}"></td>
-										<td th:text="${appointment.doctorEmail}"></td>
-										<td th:text="${appointment.doctorSpecificAre}"></td>
-										<td th:text="${appointment.doctorAvailable}"></td>
+									<tr th:each="doctorAppointments : ${doctorAppointments}">
+										<td th:text="${doctorAppointments.userName}"></td>
+										<td th:text="${doctorAppointments.userEmail}"></td>
+										<td th:text="${doctorAppointments.userMobile}"></td>
+										<td th:text="${doctorAppointments.doctorName}"></td>
+										<td th:text="${doctorAppointments.doctorSpecificAre}"></td>
+										<td><span class="custom-badge status-green" th:text="${doctorAppointments.status}"></span></td>
+										
 										<td class="text-right">
-											<a class="mr-3" th:href="@{'/doctor/'}"><i
-													class="fa fa-check-circle-o m-r-5"></i> Approve</a>
-											<a href="#" data-toggle="modal" data-target="#delete_patient"><i
-													class="fa fa-times-circle-o m-r-5"></i> Decline</a>
+											<a class="mr-3"
+												th:href="@{/doctor/appointments/{id} (id=${doctorAppointments.id})}">
+												<i class="fa fa-check-circle-o m-r-5"></i> Approve
+											</a>
+											<a href="#" data-toggle="modal" data-target="#delete_patient">
+												<i class="fa fa-times-circle-o m-r-5"></i> Decline</a>
 										</td>
 									</tr>
 								</tbody>

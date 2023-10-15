@@ -17,6 +17,8 @@ public class Book {
 	private String doctorEmail;
 	private String doctorSpecificAre;
 	private String doctorAvailable;
+	private String status;
+	
 	public long getId() {
 		return id;
 	}
@@ -65,8 +67,10 @@ public class Book {
 	public void setDoctorAvailable(String doctorAvailable) {
 		this.doctorAvailable = doctorAvailable;
 	}
-
-	
-	
-	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 }

@@ -6,11 +6,14 @@ import java.util.List;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -37,9 +40,12 @@ public class doctorController {
 
 	@Autowired
 	private DoctorDetailsRepo doctorDetailsRepo;
-	
+
 	@Autowired
 	private BookRepo bookRepo;
+
+	@Autowired
+	private JavaMailSender javaMailSender;
 
 	private static final Logger logger = LogManager.getLogger(adminController.class);
 
@@ -106,29 +112,128 @@ public class doctorController {
 
 	@GetMapping("/appointments")
 	public String appointments(Model model, Principal principal) {
-		boolean isLoggedIn = principal != null;
-		boolean isSaved = principal != null;
+		try {
+			boolean isLoggedIn = principal != null;
+			boolean isSaved = principal != null;
 
-		model.addAttribute("isLoggedIn", isLoggedIn);
-		model.addAttribute("isSaved", isSaved);
+			model.addAttribute("isLoggedIn", isLoggedIn);
+			model.addAttribute("isSaved", isSaved);
 
-		if (isLoggedIn) {
-			String email = principal.getName();
-			User user = userRepo.findByEmail(email);
-			model.addAttribute("user", user);
+			if (isLoggedIn) {
+				String email = principal.getName();
+				User user = userRepo.findByEmail(email);
+				model.addAttribute("user", user);
+			}
+			if (isSaved) {
+				String email = principal.getName();
+				DoctorDetails details = doctorDetailsRepo.findByEmail(email);
+				model.addAttribute("doctor", details);
+
+				// Fetch the appointments for the logged-in doctor
+				List<Book> doctorAppointments = bookRepo.findByDoctorName(details.getName());
+				model.addAttribute("doctorAppointments", doctorAppointments);
+
+				// Log an INFO message for successfully displaying doctor appointments
+				logger.info("Displayed appointments for doctor: " + details.getName());
+			}
+
+			return "DoctorPanel/appointments";
+		} catch (Exception e) {
+			// Log the exception with an ERROR level
+			logger.error("An error occurred while displaying doctor appointments", e);
+
+			// Log a WARN message for the display failure
+			logger.warn("Failed to display doctor appointments");
+
+			return "redirect:/errorPage";
 		}
-		if (isSaved) {
-			String email = principal.getName();
-			DoctorDetails details = doctorDetailsRepo.findByEmail(email);
-			model.addAttribute("doctor", details);
-			
-			// Fetch the appointments for the logged-in doctor
-	        List<Book> doctorAppointments = bookRepo.findByDoctorName(details.getName());
-	        model.addAttribute("doctorAppointments", doctorAppointments);
+	}
+
+	@GetMapping("/appointments/{id}")
+	public String editProducts(@PathVariable Long id, Model model, Principal principal) {
+		try {
+			boolean isLoggedIn = principal != null;
+			boolean isSaved = principal != null;
+
+			model.addAttribute("isLoggedIn", isLoggedIn);
+			model.addAttribute("isSaved", isSaved);
+
+			if (isLoggedIn) {
+				String email = principal.getName();
+				User user = userRepo.findByEmail(email);
+				model.addAttribute("user", user);
+			}
+			if (isSaved) {
+				String email = principal.getName();
+				DoctorDetails details = doctorDetailsRepo.findByEmail(email);
+				model.addAttribute("doctor", details);
+			}
+
+			Book doctorAppointments = doctorDetailsService.getappointmentByID(id);
+			model.addAttribute("doctorAppointments", doctorAppointments);
+
+			// Log an INFO message for successfully displaying doctor's appointment for
+			// editing
+			logger.info("Displayed doctor's appointment for editing with ID: " + id);
+
+			return "DoctorPanel/approve";
+		} catch (Exception e) {
+			// Log the exception with an ERROR level
+			logger.error("An error occurred while displaying doctor's appointment for editing with ID: " + id, e);
+
+			// Log a WARN message for the display failure
+			logger.warn("Failed to display doctor's appointment for editing with ID: " + id);
+
+			return "redirect:/errorPage";
 		}
-		
-		
-		return "DoctorPanel/appointments";
+	}
+
+	@PostMapping("/appointments/{id}")
+	public String updateAdmin(@PathVariable Long id, @ModelAttribute("user") Book book, Model model) {
+		try {
+			Book approve = doctorDetailsService.getappointmentByID(id);
+			approve.setId(id);
+			approve.setUserName(book.getUserName());
+			approve.setUserEmail(book.getUserEmail());
+			approve.setUserMobile(book.getUserMobile());
+			approve.setDoctorName(book.getDoctorName());
+			approve.setDoctorEmail(book.getDoctorEmail());
+			approve.setDoctorAvailable(book.getDoctorAvailable());
+			approve.setDoctorSpecificAre(book.getDoctorSpecificAre());
+			approve.setStatus("Approved");
+
+			bookRepo.save(approve);
+
+			// Send a welcome email to the user
+			SimpleMailMessage mailMessage = new SimpleMailMessage();
+			mailMessage.setSubject("Doctor Approved Your Appointment Successfully!");
+			mailMessage.setTo(book.getUserEmail());
+			mailMessage.setFrom("docfinder.xyz@gmail.com");
+
+			String emailContent = "Dear " + book.getUserName() + ",\n\n"
+					+ "We are pleased to inform you that your appointment has been approved.\n\n"
+					+ "Here are the details:\n" + "Doctor Name: " + book.getDoctorName() + "\n" + "Doctor Email: "
+					+ book.getDoctorEmail() + "\n" + "Doctor Available Date: " + book.getDoctorAvailable() + "\n"
+					+ "If you have any questions or need to make changes, please don't hesitate to contact us.\n\n"
+					+ "Thank you for choosing DocFinder.\n\n" + "Sincerely,\n" + "The DocFinder Team";
+
+			mailMessage.setText(emailContent);
+
+			javaMailSender.send(mailMessage);
+
+			// Log an INFO message for successfully approving the appointment
+			logger.info("Approved appointment with ID: " + id + " for user: " + book.getUserName());
+
+			return "redirect:/doctor/appointments";
+		} catch (Exception e) {
+			// Log the exception with an ERROR level
+			logger.error("An error occurred while approving the appointment with ID: " + id, e);
+
+			// Log a WARN message for the approval failure
+			logger.warn("Failed to approve the appointment with ID: " + id);
+
+			return "redirect:/errorPage";
+		}
 	}
 
 	@PostMapping("/saveDetails")
