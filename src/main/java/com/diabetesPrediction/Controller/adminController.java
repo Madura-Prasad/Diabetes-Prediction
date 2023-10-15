@@ -93,21 +93,35 @@ public class adminController {
 	}
 
 	@GetMapping("/appointment")
-	public String appointment(Model model, Principal principal) {
-		boolean isLoggedIn = principal != null;
-		
-	
-		model.addAttribute("isLoggedIn", isLoggedIn);
-
-		if (isLoggedIn) {
-			String email = principal.getName();
-			User user = userRepo.findByEmail(email);
-			model.addAttribute("user", user);
-		}
-		List<Book> appointmentsBooks=adminService.getAllAppointments();
-		model.addAttribute("appointment", appointmentsBooks);
-		return "AdminPanel/appointment";
-	}
+    public String appointment(Model model, Principal principal) {
+        try {
+            boolean isLoggedIn = principal != null;
+    
+            model.addAttribute("isLoggedIn", isLoggedIn);
+    
+            if (isLoggedIn) {
+                String email = principal.getName();
+                User user = userRepo.findByEmail(email);
+                model.addAttribute("user", user);
+            }
+    
+            List<Book> appointmentsBooks = adminService.getAllAppointments();
+            model.addAttribute("appointment", appointmentsBooks);
+    
+            // Log an INFO message for successfully displaying appointments
+            logger.info("Displayed " + appointmentsBooks.size() + " appointments for user: " + (isLoggedIn ? principal.getName() : "guest"));
+    
+            return "AdminPanel/appointment";
+        } catch (Exception e) {
+            // Log the exception with an ERROR level
+            logger.error("An error occurred while displaying appointments", e);
+    
+            // Log a WARN message for the display failure
+            logger.warn("Failed to display appointments.");
+    
+            return "redirect:/errorPage";
+        }
+    }
 
 	@GetMapping("/messages")
 	public String messages(Model model, Principal principal) {
