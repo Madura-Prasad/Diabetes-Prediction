@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import java.security.Principal;
 import java.util.List;
 import com.diabetesPrediction.Model.Message;
 import com.diabetesPrediction.Model.User;
@@ -29,37 +30,91 @@ public class adminController {
 
 	@Autowired
 	private UserRepo userRepo;
+	
 
 	private static final Logger logger = LogManager.getLogger(adminController.class);
 
 	@GetMapping("/")
-	public String dashboard() {
-		return "AdminPanel/index-2";
+	public String dashboard(Model model, Principal principal) {
+	    boolean isLoggedIn = principal != null;
+	    model.addAttribute("isLoggedIn", isLoggedIn);
+
+	    if (isLoggedIn) {
+	        String email = principal.getName();
+	        User user = userRepo.findByEmail(email);
+	        model.addAttribute("user", user);
+	    }
+	    return "AdminPanel/index-2";
 	}
 
 	@GetMapping("/users")
-	public String users(Model model) {
+	public String users(Model model, Principal principal) {
+		boolean isLoggedIn = principal != null;
+
+		model.addAttribute("isLoggedIn", isLoggedIn);
+
+		if (isLoggedIn) {
+			String email = principal.getName();
+			User user = userRepo.findByEmail(email);
+			model.addAttribute("users", user);
+		}
 		model.addAttribute("user", adminService.getAllUsers());
 		return "AdminPanel/patients";
 	}
 
 	@GetMapping("/addUsers")
-	public String addUsers() {
+	public String addUsers(Model model, Principal principal) {
+		boolean isLoggedIn = principal != null;
+
+		model.addAttribute("isLoggedIn", isLoggedIn);
+
+		if (isLoggedIn) {
+			String email = principal.getName();
+			User user = userRepo.findByEmail(email);
+			model.addAttribute("user", user);
+		}
 		return "AdminPanel/addPatient";
 	}
 
 	@GetMapping("/editUsers")
-	public String editUsers() {
+	public String editUsers(Model model, Principal principal) {
+		boolean isLoggedIn = principal != null;
+
+		model.addAttribute("isLoggedIn", isLoggedIn);
+
+		if (isLoggedIn) {
+			String email = principal.getName();
+			User user = userRepo.findByEmail(email);
+			model.addAttribute("user", user);
+		}
 		return "AdminPanel/editPatient";
 	}
 
 	@GetMapping("/appointment")
-	public String appointment() {
+	public String appointment(Model model, Principal principal) {
+		boolean isLoggedIn = principal != null;
+
+		model.addAttribute("isLoggedIn", isLoggedIn);
+
+		if (isLoggedIn) {
+			String email = principal.getName();
+			User user = userRepo.findByEmail(email);
+			model.addAttribute("user", user);
+		}
 		return "AdminPanel/appointment";
 	}
 
 	@GetMapping("/messages")
-	public String messages(Model model) {
+	public String messages(Model model, Principal principal) {
+		boolean isLoggedIn = principal != null;
+
+		model.addAttribute("isLoggedIn", isLoggedIn);
+
+		if (isLoggedIn) {
+			String email = principal.getName();
+			User user = userRepo.findByEmail(email);
+			model.addAttribute("user", user);
+		}
 		try {
 			List<Message> messages = adminService.getAllMessages();
 			model.addAttribute("message", adminService.getAllMessages());

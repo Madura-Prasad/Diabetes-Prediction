@@ -18,28 +18,28 @@ public class SecurityConfig {
 
 	@Autowired
 	public CustomAuthSuccessHandler successHandler;
-	
-	
-	@Bean
-	public BCryptPasswordEncoder passwordEncoder() {
+
+
+    @Bean
+    BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-		
-	@Bean
-	public UserDetailsService getDetailsService() {
+
+    @Bean
+    UserDetailsService getDetailsService() {
 		return new CustomUserDetailsService();
 	}
-	
-	@Bean
-	public DaoAuthenticationProvider getAuthenticationProvider() {
+
+    @Bean
+    DaoAuthenticationProvider getAuthenticationProvider() {
 		DaoAuthenticationProvider daoAuthenticationProvider= new DaoAuthenticationProvider();
 		daoAuthenticationProvider.setUserDetailsService(getDetailsService());
 		daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
 		return daoAuthenticationProvider;
 	}
-	
-	@Bean
-	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+
+    @Bean
+    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		
 		http.csrf().disable()
 		.authorizeHttpRequests().requestMatchers("/user/**").hasRole("USER")

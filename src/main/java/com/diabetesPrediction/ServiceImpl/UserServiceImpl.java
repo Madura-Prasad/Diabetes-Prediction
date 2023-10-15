@@ -1,6 +1,7 @@
 package com.diabetesPrediction.ServiceImpl;
 
 
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -8,8 +9,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import com.diabetesPrediction.Model.Book;
+import com.diabetesPrediction.Model.DoctorDetails;
 import com.diabetesPrediction.Model.Message;
 import com.diabetesPrediction.Model.User;
+import com.diabetesPrediction.Repository.BookRepo;
+import com.diabetesPrediction.Repository.DoctorDetailsRepo;
 import com.diabetesPrediction.Repository.MessageRepo;
 import com.diabetesPrediction.Repository.UserRepo;
 import com.diabetesPrediction.Service.UserService;
@@ -24,6 +29,12 @@ public class UserServiceImpl implements UserService{
 	
 	@Autowired
 	private MessageRepo messageRepo;
+	
+	@Autowired
+	private DoctorDetailsRepo doctorDetailsRepo;
+	
+	@Autowired
+	private BookRepo bookRepo;
 
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
@@ -51,6 +62,23 @@ public class UserServiceImpl implements UserService{
 		Message newMessage = messageRepo.save(message);
 		return newMessage;
 	}
+
+	@Override
+	public List<DoctorDetails> getAllDoctors() {
+		return doctorDetailsRepo.findAll();
+	}
+
+	@Override
+	public DoctorDetails getDoctorDetailsByID(Long id) {
+		return doctorDetailsRepo.findById(id).get();
+	}
+	
+	@Override
+	public Book saveBook(Book book) {
+		Book book2 = bookRepo.save(book);
+		return book2;
+	}
+	
 
 
 }

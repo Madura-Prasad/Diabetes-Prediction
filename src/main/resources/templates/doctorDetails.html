@@ -7,18 +7,18 @@
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" th:href="@{assets/user/css/bootstrap.min.css}">
-	<link rel="stylesheet" th:href="@{assets/user/css/owl.carousel.min.css}">
-	<link rel="stylesheet" th:href="@{assets/user/css/owl.theme.default.min.css}">
-	<link rel="stylesheet" th:href="@{assets/user/css/boxicon.min.css}">
-	<link rel="stylesheet" th:href="@{assets/user/fonts/flaticon/flaticon.css}">
-	<link rel="stylesheet" th:href="@{assets/user/css/nice-select.css}">
-	<link rel="stylesheet" th:href="@{assets/user/css/meanmenu.css}">
-	<link rel="stylesheet" th:href="@{assets/user/css/style.css}">
-	<link rel="stylesheet" th:href="@{assets/user/css/dark.css}">
-	<link rel="stylesheet" th:href="@{assets/user/css/responsive.css}">
+	<link rel="stylesheet" th:href="@{../../assets/user/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{../../assets/user/css/owl.carousel.min.css}">
+	<link rel="stylesheet" th:href="@{../../assets/user/css/owl.theme.default.min.css}">
+	<link rel="stylesheet" th:href="@{../../assets/user/css/boxicon.min.css}">
+	<link rel="stylesheet" th:href="@{../../assets/user/fonts/flaticon/flaticon.css}">
+	<link rel="stylesheet" th:href="@{../../assets/user/css/nice-select.css}">
+	<link rel="stylesheet" th:href="@{../../assets/user/css/meanmenu.css}">
+	<link rel="stylesheet" th:href="@{../../assets/user/css/style.css}">
+	<link rel="stylesheet" th:href="@{../../assets/user/css/dark.css}">
+	<link rel="stylesheet" th:href="@{../../assets/user/css/responsive.css}">
 	<title>DocFinder - Schedule Doctor Appointments & Medical Services</title>
-	<link rel="icon" type="image/png" th:href="@{assets/user/img/favicon.png}">
+	<link rel="icon" type="image/png" th:href="@{../../assets/user/img/favicon.png}">
 </head>
 
 <body>
@@ -49,15 +49,15 @@
 
 		<div class="mobile-nav">
 			<a href="index.html" class="logo">
-				<img src="assets/user/img/logo.png" alt="logo">
+				<img src="../assets/user/img/logo.png" alt="logo">
 			</a>
 		</div>
 
-			<div class="main-nav">
+		<div class="main-nav">
 			<div class="container">
 				<nav class="navbar navbar-expand-lg navbar-light">
 					<a class="navbar-brand" href="index.html">
-						<img src="assets/user/img/logo.png" alt="logo">
+						<img src="../../assets/user/img/logo.png" alt="logo">
 					</a>
 					<div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
 						<ul class="navbar-nav m-auto">
@@ -96,7 +96,8 @@
 						</th:block>
 						<th:block th:if="${user!=null}">
 							<a th:href="@{'/user/account'}" class="nav-link">
-								<div class="text-light">Hello, <span class="fw-bold text-capitalize text-light" th:text="${user.name}"></span>
+								<div class="text-light">Hello, <span class="fw-bold text-capitalize text-light"
+										th:text="${user.name}"></span>
 								</div>
 							</a>
 						</th:block>
@@ -131,39 +132,52 @@
 			<div class="row">
 				<div class="col-lg-4">
 					<div class="candidate-profile">
-						<h3>John Smith</h3>
-						<p>Web Developer</p>
+						<h3 th:text="${doctorDetails.name}"></h3>
+						<p th:text="${doctorDetails.specificArea}"></p>
 						<ul>
 							<li>
-								<a href="tel:+100230342">
+								<a>
 									<i class='bx bxs-phone'></i>
-									+101 023 0342
+									<span th:text="${doctorDetails.mobile}"></span>
 								</a>
 							</li>
 							<li>
-								<a href="">email</a>
+								<a>
+									<i class='bx bx-envelope'></i>
+									<span th:text="${doctorDetails.email}"></span>
+								</a>
 							</li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-8">
 					<div class="candidate-info-text">
-						<h3>About Me</h3>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-							been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-							galley of type and scrambled it to make a type specimen book. It has survived not only five
-							centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+						<h3>About Doctor</h3>
+						<p th:text="${doctorDetails.bio}">
 						</p>
 					</div>
-					<div class="candidate-info-text text-center">
+					<div class="candidate-info-text candidate-skill">
+						<h3>Specilist</h3>
+						<ul>
+							<li th:text="${doctorDetails.specificArea}"></li>
+						</ul>
+					</div>
+					<div class="candidate-info-text candidate-skill">
+						<h3>Availble</h3>
+						<ul>
+							<li th:text="${doctorDetails.available}"></li>
+						</ul>
+					</div>
+					<div class=" text-center">
 						<div class="theme-btn">
-							<a href="#" class="default-btn">Book Now</a>
+							<a th:href="@{/user/book/{id}(id=${doctorDetails.id})}" class="default-btn">Book Now</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
+
 
 
 	<section class="subscribe-section">
@@ -197,7 +211,7 @@
 					<div class="footer-widget">
 						<div class="footer-logo">
 							<a href="index.html">
-								<img src="assets/user/img/logo.png" alt="logo">
+								<img src="../assets/user/img/logo.png" alt="logo">
 							</a>
 						</div>
 						<p>Stay connected with our healthcare community! Explore our services, find a doctor, and book
@@ -217,37 +231,37 @@
 					<div class="footer-widget pl-60">
 						<h3>Quick Links</h3>
 						<ul>
-                            <li>
-                                <a th:href="@{'/'}">
-                                    <i class='bx bx-chevrons-right bx-tada'></i>
-                                    Home
-                                </a>
-                            </li>
-                            <li>
-                                <a th:href="@{'/about'}">
-                                    <i class='bx bx-chevrons-right bx-tada'></i>
-                                    About
-                                </a>
-                            </li>
-                            <li>
-                                <a th:href="@{'/faq'}">
-                                    <i class='bx bx-chevrons-right bx-tada'></i>
-                                    FAQ
-                                </a>
-                            </li>
-                            <li>
-                                <a th:href="@{'/privacy'}">
-                                    <i class='bx bx-chevrons-right bx-tada'></i>
-                                    Privacy
-                                </a>
-                            </li>
-                            <li>
-                                <a th:href="@{'/contact'}">
-                                    <i class='bx bx-chevrons-right bx-tada'></i>
-                                    Contact
-                                </a>
-                            </li>
-                        </ul>
+							<li>
+								<a th:href="@{'/'}">
+									<i class='bx bx-chevrons-right bx-tada'></i>
+									Home
+								</a>
+							</li>
+							<li>
+								<a th:href="@{'/about'}">
+									<i class='bx bx-chevrons-right bx-tada'></i>
+									About
+								</a>
+							</li>
+							<li>
+								<a th:href="@{'/faq'}">
+									<i class='bx bx-chevrons-right bx-tada'></i>
+									FAQ
+								</a>
+							</li>
+							<li>
+								<a th:href="@{'/privacy'}">
+									<i class='bx bx-chevrons-right bx-tada'></i>
+									Privacy
+								</a>
+							</li>
+							<li>
+								<a th:href="@{'/contact'}">
+									<i class='bx bx-chevrons-right bx-tada'></i>
+									Contact
+								</a>
+							</li>
+						</ul>
 					</div>
 				</div>
 				<div class="col-lg-4 col-sm-6">
@@ -298,16 +312,16 @@
 		<i class='bx bx-chevrons-up bx-fade-up'></i>
 	</div>
 
-	<script th:src="@{assets/user/js/jquery.min.js}"></script>
-	<script th:src="@{assets/user/js/bootstrap.bundle.min.js}"></script>
-	<script th:src="@{assets/user/js/owl.carousel.min.js}"></script>
-	<script th:src="@{assets/user/js/jquery.nice-select.min.js}"></script>
-	<script th:src="@{assets/user/js/jquery.magnific-popup.min.js}"></script>
-	<script th:src="@{assets/user/js/jquery.ajaxchimp.min.js}"></script>
-	<script th:src="@{assets/user/js/form-validator.min.js}"></script>
-	<script th:src="@{assets/user/js/contact-form-script.js}"></script>
-	<script th:src="@{assets/user/js/meanmenu.js}"></script>
-	<script th:src="@{assets/user/js/custom.js}"></script>
+	<script th:src="@{../../assets/user/js/jquery.min.js}"></script>
+	<script th:src="@{../../assets/user/js/bootstrap.bundle.min.js}"></script>
+	<script th:src="@{../../assets/user/js/owl.carousel.min.js}"></script>
+	<script th:src="@{../../assets/user/js/jquery.nice-select.min.js}"></script>
+	<script th:src="@{../../assets/user/js/jquery.magnific-popup.min.js}"></script>
+	<script th:src="@{../../assets/user/js/jquery.ajaxchimp.min.js}"></script>
+	<script th:src="@{../../assets/user/js/form-validator.min.js}"></script>
+	<script th:src="@{../../assets/user/js/contact-form-script.js}"></script>
+	<script th:src="@{../../assets/user/js/meanmenu.js}"></script>
+	<script th:src="@{../../assets/user/js/custom.js}"></script>
 </body>
 
 </html>

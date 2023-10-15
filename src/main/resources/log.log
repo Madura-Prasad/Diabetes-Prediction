@@ -1,12 +1,324 @@
-[2023-10-14 02:16:21,362] http-nio-8080-exec-1 com.diabetesPrediction.Controller.frontPageController 247 INFO   - Message saved successfully with ID: Madura Prasad
-[2023-10-14 02:17:05,545] http-nio-8080-exec-4 com.diabetesPrediction.Controller.adminController 80 DEBUG  - User saved successfully: maduraprasad.lk@gmail.com
-[2023-10-14 02:17:14,733] http-nio-8080-exec-9 com.diabetesPrediction.Controller.adminController 99 INFO   - Editing user with Name: Madura Prasad
-[2023-10-14 02:17:20,623] http-nio-8080-exec-10 com.diabetesPrediction.Controller.adminController 128 INFO   - Updating user with Name: Madura
-[2023-10-14 02:17:20,626] http-nio-8080-exec-10 com.diabetesPrediction.Controller.adminController 133 INFO   - User with Name Madura updated successfully.
-[2023-10-14 02:20:01,773] http-nio-8080-exec-2 com.diabetesPrediction.Controller.frontPageController 203 INFO   - User registered successfully with email: madura2019@gmail.com
-[2023-10-14 02:23:57,666] http-nio-8080-exec-7 com.diabetesPrediction.Controller.adminController 76 INFO   - Retrieved 4 messages
-[2023-10-14 02:24:56,919] http-nio-8080-exec-1 com.diabetesPrediction.Controller.adminController 69 INFO   - Retrieved 4 messages
-[2023-10-14 02:26:11,557] http-nio-8080-exec-3 com.diabetesPrediction.Controller.adminController 116 INFO   - Editing user with Name: Madura Prasad
-[2023-10-14 02:26:20,438] http-nio-8080-exec-4 com.diabetesPrediction.Controller.adminController 145 INFO   - Updating user with Name: Madura Prasa
-[2023-10-14 02:26:20,442] http-nio-8080-exec-4 com.diabetesPrediction.Controller.adminController 150 INFO   - User with Name Madura Prasa updated successfully.
-[2023-10-14 02:27:21,127] http-nio-8080-exec-8 com.diabetesPrediction.Controller.adminController 69 INFO   - Retrieved 4 messages
+[2023-10-15 04:18:02,949] http-nio-8080-exec-1 com.diabetesPrediction.Controller.frontPageController 90 INFO   - Displayed the list of 2
+[2023-10-15 04:18:17,501] http-nio-8080-exec-1 com.diabetesPrediction.Controller.frontPageController 121 INFO   - Displayed doctor details for doctor with ID: 3 for user: maduraprasa00@gmail.com
+[2023-10-15 04:18:24,103] http-nio-8080-exec-8 com.diabetesPrediction.Controller.userController 86 INFO   - Accessed the booking details page for doctor with ID: 3 for user: maduraprasa00@gmail.com
+[2023-10-15 04:18:40,158] http-nio-8080-exec-2 com.diabetesPrediction.Controller.userController 112 INFO   - Saved booking details for doctor with ID: 3
+[2023-10-15 04:18:47,909] http-nio-8080-exec-10 com.diabetesPrediction.Controller.frontPageController 90 INFO   - Displayed the list of 2
+[2023-10-15 04:19:13,222] http-nio-8080-exec-1 com.diabetesPrediction.Controller.frontPageController 121 INFO   - Displayed doctor details for doctor with ID: 3 for user: maduraprasa00@gmail.com
+[2023-10-15 04:19:15,687] http-nio-8080-exec-8 com.diabetesPrediction.Controller.userController 86 INFO   - Accessed the booking details page for doctor with ID: 3 for user: maduraprasa00@gmail.com
+[2023-10-15 04:19:41,287] http-nio-8080-exec-1 com.diabetesPrediction.Controller.userController 86 INFO   - Accessed the booking details page for doctor with ID: 3 for user: maduraprasa00@gmail.com
+[2023-10-15 04:19:44,809] http-nio-8080-exec-1 com.diabetesPrediction.Controller.userController 112 INFO   - Saved booking details for doctor with ID: 3
+[2023-10-15 04:23:31,698] http-nio-8080-exec-1 com.diabetesPrediction.Controller.frontPageController 90 INFO   - Displayed the list of 2
+[2023-10-15 04:23:33,794] http-nio-8080-exec-10 com.diabetesPrediction.Controller.frontPageController 121 INFO   - Displayed doctor details for doctor with ID: 2 for user: maduraprasa00@gmail.com
+[2023-10-15 04:23:36,223] http-nio-8080-exec-5 com.diabetesPrediction.Controller.userController 90 INFO   - Accessed the booking details page for doctor with ID: 2 for user: maduraprasa00@gmail.com
+[2023-10-15 04:23:39,231] http-nio-8080-exec-5 com.diabetesPrediction.Controller.userController 123 ERROR  - An error occurred while saving booking details for doctor with ID: 2
+java.util.NoSuchElementException: No value present
+	at java.base/java.util.Optional.get(Optional.java:143)
+	at com.diabetesPrediction.ServiceImpl.AdminServiceImpl.getUserByID(AdminServiceImpl.java:43)
+	at com.diabetesPrediction.Controller.userController.saveBookingDetails(userController.java:108)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+[2023-10-15 04:23:39,233] http-nio-8080-exec-5 com.diabetesPrediction.Controller.userController 126 WARN   - Failed to save booking details for doctor with ID: 2
+[2023-10-15 04:23:43,013] http-nio-8080-exec-3 com.diabetesPrediction.Controller.userController 90 INFO   - Accessed the booking details page for doctor with ID: 2 for user: maduraprasa00@gmail.com
+[2023-10-15 04:25:58,038] http-nio-8080-exec-1 com.diabetesPrediction.Controller.userController 90 INFO   - Accessed the booking details page for doctor with ID: 2 for user: maduraprasa00@gmail.com
+[2023-10-15 04:26:00,322] http-nio-8080-exec-8 com.diabetesPrediction.Controller.userController 123 ERROR  - An error occurred while saving booking details for doctor with ID: 2
+java.util.NoSuchElementException: No value present
+	at java.base/java.util.Optional.get(Optional.java:143)
+	at com.diabetesPrediction.ServiceImpl.AdminServiceImpl.getUserByID(AdminServiceImpl.java:43)
+	at com.diabetesPrediction.Controller.userController.saveBookingDetails(userController.java:108)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+[2023-10-15 04:26:00,324] http-nio-8080-exec-8 com.diabetesPrediction.Controller.userController 126 WARN   - Failed to save booking details for doctor with ID: 2
+[2023-10-15 04:26:02,601] http-nio-8080-exec-10 com.diabetesPrediction.Controller.userController 90 INFO   - Accessed the booking details page for doctor with ID: 2 for user: maduraprasa00@gmail.com
+[2023-10-15 04:26:24,972] http-nio-8080-exec-2 com.diabetesPrediction.Controller.userController 90 INFO   - Accessed the booking details page for doctor with ID: 2 for user: maduraprasa00@gmail.com
+[2023-10-15 04:26:26,850] http-nio-8080-exec-10 com.diabetesPrediction.Controller.userController 123 ERROR  - An error occurred while saving booking details for doctor with ID: 2
+java.util.NoSuchElementException: No value present
+	at java.base/java.util.Optional.get(Optional.java:143)
+	at com.diabetesPrediction.ServiceImpl.AdminServiceImpl.getUserByID(AdminServiceImpl.java:43)
+	at com.diabetesPrediction.Controller.userController.saveBookingDetails(userController.java:108)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+[2023-10-15 04:26:26,852] http-nio-8080-exec-10 com.diabetesPrediction.Controller.userController 126 WARN   - Failed to save booking details for doctor with ID: 2
+[2023-10-15 04:26:29,022] http-nio-8080-exec-10 com.diabetesPrediction.Controller.userController 90 INFO   - Accessed the booking details page for doctor with ID: 2 for user: maduraprasa00@gmail.com
+[2023-10-15 04:27:10,516] http-nio-8080-exec-1 com.diabetesPrediction.Controller.userController 90 INFO   - Accessed the booking details page for doctor with ID: 2 for user: maduraprasa00@gmail.com
+[2023-10-15 04:27:14,988] http-nio-8080-exec-1 com.diabetesPrediction.Controller.userController 116 INFO   - Saved booking details for doctor with ID: 2
+[2023-10-15 04:27:50,674] http-nio-8080-exec-1 com.diabetesPrediction.Controller.frontPageController 90 INFO   - Displayed the list of 2
+[2023-10-15 04:27:52,857] http-nio-8080-exec-8 com.diabetesPrediction.Controller.frontPageController 121 INFO   - Displayed doctor details for doctor with ID: 2 for user: maduraprasa00@gmail.com
+[2023-10-15 04:27:55,293] http-nio-8080-exec-3 com.diabetesPrediction.Controller.userController 90 INFO   - Accessed the booking details page for doctor with ID: 2 for user: maduraprasa00@gmail.com
+[2023-10-15 04:28:11,143] http-nio-8080-exec-8 com.diabetesPrediction.Controller.userController 116 INFO   - Saved booking details for doctor with ID: 2
+[2023-10-15 04:31:39,753] http-nio-8080-exec-2 com.diabetesPrediction.Controller.frontPageController 90 INFO   - Displayed the list of 2
+[2023-10-15 04:31:42,553] http-nio-8080-exec-10 com.diabetesPrediction.Controller.frontPageController 121 INFO   - Displayed doctor details for doctor with ID: 3 for user: maduraprasa00@gmail.com
+[2023-10-15 04:31:46,343] http-nio-8080-exec-2 com.diabetesPrediction.Controller.frontPageController 90 INFO   - Displayed the list of 2
+[2023-10-15 04:31:48,510] http-nio-8080-exec-9 com.diabetesPrediction.Controller.frontPageController 121 INFO   - Displayed doctor details for doctor with ID: 3 for user: maduraprasa00@gmail.com
+[2023-10-15 04:31:50,668] http-nio-8080-exec-4 com.diabetesPrediction.Controller.userController 90 INFO   - Accessed the booking details page for doctor with ID: 3 for user: maduraprasa00@gmail.com
+[2023-10-15 04:31:53,598] http-nio-8080-exec-4 com.diabetesPrediction.Controller.userController 127 INFO   - Saved booking details for doctor with ID: 3
+[2023-10-15 04:32:08,895] http-nio-8080-exec-4 com.diabetesPrediction.Controller.frontPageController 90 INFO   - Displayed the list of 2
+[2023-10-15 04:35:07,330] http-nio-8080-exec-1 com.diabetesPrediction.Controller.frontPageController 90 INFO   - Displayed the list of 2
+[2023-10-15 04:35:09,763] http-nio-8080-exec-10 com.diabetesPrediction.Controller.frontPageController 121 INFO   - Displayed doctor details for doctor with ID: 3 for user: maduraprasa00@gmail.com
+[2023-10-15 04:35:12,189] http-nio-8080-exec-8 com.diabetesPrediction.Controller.userController 88 INFO   - Accessed the booking details page for doctor with ID: 3 for user: maduraprasa00@gmail.com
+[2023-10-15 04:36:37,564] http-nio-8080-exec-2 com.diabetesPrediction.Controller.userController 88 INFO   - Accessed the booking details page for doctor with ID: 3 for user: maduraprasa00@gmail.com
+[2023-10-15 04:36:42,397] http-nio-8080-exec-1 com.diabetesPrediction.Controller.userController 114 INFO   - Saved booking details for doctor with ID: 3
+[2023-10-15 04:36:42,423] http-nio-8080-exec-2 com.diabetesPrediction.Controller.frontPageController 90 INFO   - Displayed the list of 2
+[2023-10-15 04:36:51,906] http-nio-8080-exec-2 com.diabetesPrediction.Controller.frontPageController 121 INFO   - Displayed doctor details for doctor with ID: 2 for user: maduraprasa00@gmail.com
+[2023-10-15 04:36:53,655] http-nio-8080-exec-1 com.diabetesPrediction.Controller.userController 88 INFO   - Accessed the booking details page for doctor with ID: 2 for user: maduraprasa00@gmail.com
+[2023-10-15 04:36:58,673] http-nio-8080-exec-3 com.diabetesPrediction.Controller.userController 114 INFO   - Saved booking details for doctor with ID: 2
+[2023-10-15 04:36:58,695] http-nio-8080-exec-9 com.diabetesPrediction.Controller.frontPageController 90 INFO   - Displayed the list of 2
+[2023-10-15 04:37:33,446] http-nio-8080-exec-1 com.diabetesPrediction.Controller.frontPageController 121 INFO   - Displayed doctor details for doctor with ID: 3 for user: maduraprasa00@gmail.com
+[2023-10-15 04:37:36,007] http-nio-8080-exec-8 com.diabetesPrediction.Controller.userController 88 INFO   - Accessed the booking details page for doctor with ID: 3 for user: maduraprasa00@gmail.com
+[2023-10-15 04:37:42,138] http-nio-8080-exec-5 com.diabetesPrediction.Controller.userController 114 INFO   - Saved booking details for doctor with ID: 3
+[2023-10-15 04:37:42,165] http-nio-8080-exec-1 com.diabetesPrediction.Controller.frontPageController 90 INFO   - Displayed the list of 2
+[2023-10-15 04:39:07,415] http-nio-8080-exec-1 com.diabetesPrediction.Controller.frontPageController 90 INFO   - Displayed the list of 2
+[2023-10-15 04:39:09,662] http-nio-8080-exec-10 com.diabetesPrediction.Controller.frontPageController 121 INFO   - Displayed doctor details for doctor with ID: 2 for user: maduraprasa00@gmail.com
+[2023-10-15 04:39:11,292] http-nio-8080-exec-5 com.diabetesPrediction.Controller.userController 87 INFO   - Accessed the booking details page for doctor with ID: 2 for user: maduraprasa00@gmail.com
+[2023-10-15 04:39:21,245] http-nio-8080-exec-5 com.diabetesPrediction.Controller.userController 55 INFO   - Accessed the account page for user: maduraprasa00@gmail.com

@@ -94,6 +94,12 @@
 								<a th:href="@{'/signin'}" class="signin-btn">Sign In</a>
 							</div>
 						</th:block>
+						<th:block th:if="${user!=null}">
+							<a th:href="@{'/user/account'}" class="nav-link">
+								<div class="text-light">Hello, <span class="fw-bold text-capitalize text-light" th:text="${user.name}"></span>
+								</div>
+							</a>
+						</th:block>
 						
 					</div>
 				</nav>

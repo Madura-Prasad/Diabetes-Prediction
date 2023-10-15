@@ -137,40 +137,50 @@
 			</div>
 
 			<div class="row">
-				<div class="col-lg-12">
-					<div class="job-card-two">
-						<div class="row align-items-center">
-							<div class="col-md-1">
-								<div class="company-logo">
-									<a href="job-details.html"></a>
-									<img src="assets/user/img/company-logo/1.png" alt="logo">
-								</div>
-							</div>
-							<div class="col-md-8">
-								<div class="job-info">
-									<h3>
-										<a href="job-details.html">Web Designer, Graphic Designer, UI/UX Designer</a>
-									</h3>
-									<ul>
-										<li>
-											<i class='bx bx-briefcase'></i>
-											Graphics Designer
-										</li>
-									</ul>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="theme-btn text-end">
-									<a href="job-details.html" class="default-btn">
-										Browse Doctor
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+    <div class="col-lg-12">
+        <!-- Iterate over the list of DoctorDetails -->
+        <th:block th:each="doctor : ${doctor}">
+            <div class="job-card-two">
+                <div class="row align-items-center">
+                    <div class="col-md-1">
+                        <div class="company-logo">
+                            <a th:href="@{/doctorDetails/{id}(id=${doctor.id})}">  <!-- Add a link to the doctor details page -->
+                               <img src="assets/user/img/user.png" alt="logo">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="job-info">
+                            <h3>
+                                <!-- Display doctor details -->
+                                <a th:href="@{/doctorDetails/{id}(id=${doctor.id})}" th:text="${doctor.name}">  <!-- Add a link to the doctor details page -->
+                                </a>
+                            </h3>
+                            <ul>
+                                <li>
+                                    <i class='bx bx-briefcase'></i>
+                                    <span class="bg-transparent border-0 captalize fw-bold" style="font-size: 16px;" th:text="${doctor.specificArea}"></span>
+                                </li>
+                                <li>
+                                    <i class='bx bx-phone'></i>
+                                    <span class="bg-transparent border-0 captalize fw-bold" style="font-size: 16px;" th:text="${doctor.mobile}"></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="theme-btn text-end">
+                            <a th:href="@{/doctorDetails/{id}(id=${doctor.id})}" class="default-btn">  <!-- Add a link to the doctor details page -->
+                                Book Doctor
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </th:block>
+    </div>
+</div>
 
-			</div>
 		</div>
 	</section>
 

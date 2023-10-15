@@ -3,79 +3,133 @@
 
 
 <!-- index22:59-->
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <link rel="shortcut icon" type="image/x-icon" href="../assets/doctor/img/favicon.ico">
-    <title>DocFinder - Doctor Panel</title>
-    <link rel="stylesheet" type="text/css" href="../assets/doctor/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../assets/doctor/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../assets/doctor/css/select2.min.css">
-    <link rel="stylesheet" type="text/css" href="../assets/doctor/css/bootstrap-datetimepicker.min.css">
-    <link rel="stylesheet" type="text/css" href="../assets/doctor/css/style.css">
-    <!--[if lt IE 9]>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+	<link rel="shortcut icon" type="image/x-icon" href="../assets/doctor/img/favicon.ico">
+	<title>DocFinder - Doctor Panel</title>
+	<link rel="stylesheet" type="text/css" href="../assets/doctor/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../assets/doctor/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../assets/doctor/css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="../assets/doctor/css/bootstrap-datetimepicker.min.css">
+	<link rel="stylesheet" type="text/css" href="../assets/doctor/css/style.css">
+	<!--[if lt IE 9]>
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
 	<![endif]-->
 </head>
 
 <body>
-    <div class="main-wrapper">
-        <div class="header">
+	<div class="main-wrapper">
+		<div class="header">
 			<div class="header-left">
-				<a th:href="@{'/doctor/'}" class="logo">
-					<img src="../assets/doctor/img/logo.png" width="35" height="35" alt=""> <span>DocFinder</span>
+				<a th:href="@{'/doctot/'}" class="logo">
+					<img src="../assets/doctor/img/logo.png" width="35" height="35" alt=""> <span>DodFinder</span>
 				</a>
 			</div>
 			<a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
-            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
-        </div>
-        <div class="sidebar" id="sidebar">
-            <div class="sidebar-inner slimscroll">
-                <div id="sidebar-menu" class="sidebar-menu">
-                   <ul>
-                        <li class="active">
-                            <a th:href="@{'/doctor/'}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
-                        </li>
+			<a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
+			<ul class="nav user-menu float-right">
+				<li class="nav-item dropdown has-arrow">
+					<a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
+						<span class="user-img">
+							<img class="rounded-circle" src="../assets/doctor/img/user.jpg" width="24" alt="Admin">
+							<span class="status online"></span>
+						</span>
+						<span class="fw-bold text-capitalize" th:text="${user.name}"></span>
+					</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="/logout">Logout</a>
+					</div>
+				</li>
+			</ul>
+			<div class="dropdown mobile-user-menu float-right">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+						class="fa fa-ellipsis-v"></i></a>
+				<div class="dropdown-menu dropdown-menu-right">
+					<a class="dropdown-item" href="/logout">Logout</a>
+				</div>
+			</div>
+		</div>
+		<div class="sidebar" id="sidebar">
+			<div class="sidebar-inner slimscroll">
+				<div id="sidebar-menu" class="sidebar-menu">
+					<ul>
+						<li class="active">
+							<a th:href="@{'/doctor/'}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+						</li>
+						<th:block th:if="${doctor==NULL}">
+							<li class="active">
+								<a th:href="@{'/doctor/addDetails'}"><i class="fa fa-user-md"></i> <span>Add
+										Details</span></a>
+							</li>
+						</th:block>
+						<th:block th:if="${doctor!=null}"></th:block>
 						<li>
-                            <a th:href="@{'/doctor/addDetails'}"><i class="fa fa-user-md"></i> <span>Add Details</span></a>
-                        </li>
-                        <li>
-                            <a th:href="@{'/doctor/appointments'}"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-calculator"></i> <span>Prediction</span></a>
-                        </li>
-                        <li>
-                            <a href="/logout"><i class="fa fa-sign-out"></i> <span>Log Out</span></a>
-                        </li>
-            
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="page-wrapper">
-            <div class="content">
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
-                        <h1 class="text-center mt-5 fw-bold text-primary">Welcome <span class="fw-bold text-capitalize text-primary" th:text="${user.name}"></span>, to Admin Panel ..</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="sidebar-overlay" data-reff=""></div>
-    <script src="../assets/doctor/js/jquery-3.2.1.min.js"></script>
+							<a th:href="@{'/doctor/appointments'}"><i class="fa fa-calendar"></i>
+								<span>Appointments</span></a>
+						</li>
+						<li>
+							<a href="#"><i class="fa fa-calculator"></i> <span>Prediction</span></a>
+						</li>
+						<li>
+							<a href="/logout"><i class="fa fa-sign-out"></i> <span>Log Out</span></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="page-wrapper">
+			<div class="content">
+				<div class="row">
+					<div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
+						<h1 class="text-center mt-5 fw-bold text-primary">Welcome <span
+								class="fw-bold text-capitalize text-primary" th:text="${user.name}"></span>, to Admin
+							Panel ...</h1>
+					</div>
+				</div>
+				<div class="row doctor-grid mt-5">
+					<div class="col-md-12 col-sm-12 col-lg-3 mt-5"></div>
+					<th:block th:if="${doctor==NULL}"></th:block>
+					<th:block th:if="${doctor!=null}">
+						<div class="col-md-12 col-sm-12 col-lg-6 mt-5">
+							<h3 class="text-dark fw-bold capitalize text-center">Your Details</h3>
+							<div class="profile-widget mt-5">
+								<div class="doctor-img">
+									<a class="avatar" href="#"><img alt="" src="../assets/doctor/img/user.jpg"></a>
+								</div>
+								<h3 class="doctor-name text-ellipsis">Name - <a href="#" class="text-dark fw-bold" th:text="${doctor.name}"></a></h3>
+								<div class="doc-prof mt-2">
+									<h4>Specilist - <a href="#" class="text-dark" th:text="${doctor.specificArea}"></a></h4>
+								</div>
+								<div class="user-country mt-2">
+									<h5>Bio - <a href="#" class="text-dark" th:text="${doctor.bio}"></a></h5>
+								</div>
+								<div class="user-country mt-2">
+									<h5>Available Date - <a href="#" class="text-dark" th:text="${doctor.available}"></a></h5>
+								</div>
+							</div>
+						</div>
+					</th:block>
+					<div class="col-md-12 col-sm-12 col-lg-3 mt-5"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar-overlay" data-reff=""></div>
+	<script src="../assets/doctor/js/jquery-3.2.1.min.js"></script>
 	<script src="../assets/doctor/js/popper.min.js"></script>
-    <script src="../assets/doctor/js/bootstrap.min.js"></script>
-    <script src="../assets/doctor/js/jquery.slimscroll.js"></script>
-    <script src="../assets/doctor/js/select2.min.js"></script>
+	<script src="../assets/doctor/js/bootstrap.min.js"></script>
+	<script src="../assets/doctor/js/jquery.slimscroll.js"></script>
+	<script src="../assets/doctor/js/select2.min.js"></script>
 	<script src="../assets/doctor/js/moment.min.js"></script>
 	<script src="../assets/doctor/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="../assets/doctor/js/app.js"></script>
+	<script src="../assets/doctor/js/app.js"></script>
 
 </body>
 
 
 <!-- index22:59-->
+
 </html>

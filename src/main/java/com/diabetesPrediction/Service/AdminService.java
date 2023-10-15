@@ -18,6 +18,6 @@ public interface AdminService {
 	void deleteUserByID(Long id);
 	
 	List<Message> getAllMessages();
-	
+
 	
 }

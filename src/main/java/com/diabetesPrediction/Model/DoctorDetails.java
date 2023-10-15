@@ -6,15 +6,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Message {
+public class DoctorDetails {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String name;
 	private String email;
 	private String mobile;
-	private String subject;
-	private String message;
+	private String specificArea;
+	private String bio;
+	private String available;
 	public long getId() {
 		return id;
 	}
@@ -39,18 +41,23 @@ public class Message {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
-	public String getSubject() {
-		return subject;
+	public String getSpecificArea() {
+		return specificArea;
 	}
-	public void setSubject(String subject) {
-		this.subject = subject;
+	public void setSpecificArea(String specificArea) {
+		this.specificArea = specificArea;
 	}
-	public String getMessage() {
-		return message;
+	public String getBio() {
+		return bio;
 	}
-	public void setMessage(String message) {
-		this.message = message;
+	public void setBio(String bio) {
+		this.bio = bio;
 	}
-	
+	public String getAvailable() {
+		return available;
+	}
+	public void setAvailable(String available) {
+		this.available = available;
+	}
 	
 }

@@ -12,17 +12,17 @@ import com.diabetesPrediction.Repository.UserRepo;
 import com.diabetesPrediction.Service.AdminService;
 
 @Service
-public class AdminServiceImpl implements AdminService{
+public class AdminServiceImpl implements AdminService {
 
 	@Autowired
 	private UserRepo userRepo;
-	
+
 	@Autowired
 	private MessageRepo messageRepo;
 
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
-	
+
 	@Override
 	public List<User> getAllUsers() {
 		return userRepo.findAll();
@@ -51,14 +51,12 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public void deleteUserByID(Long id) {
 		userRepo.deleteById(id);
-		
+
 	}
-	
+
 	@Override
 	public List<Message> getAllMessages() {
 		return messageRepo.findAll();
 	}
-
-	
 
 }

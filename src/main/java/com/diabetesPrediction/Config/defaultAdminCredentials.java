@@ -22,26 +22,12 @@ public class defaultAdminCredentials {
 	public void initDefaultAdmin() {
 		User defaultUser = new User();
 		defaultUser.setId(1);
-		defaultUser.setName("Admin");
+		defaultUser.setName("DocFinder");
 		defaultUser.setEmail("admin@gmail.com");
 		defaultUser.setState("-");
 		defaultUser.setMobile("-");
 		defaultUser.setPassword(passwordEncoder.encode("password"));
 		defaultUser.setRole("ROLE_ADMIN");
-		defaultUser.setCreateYear("-");
-		userRepository.save(defaultUser);
-	}
-	
-	@PostConstruct
-	public void initDefaultDoctor() {
-		User defaultUser = new User();
-		defaultUser.setId(2);
-		defaultUser.setName("Doctor");
-		defaultUser.setEmail("doctor@gmail.com");
-		defaultUser.setState("-");
-		defaultUser.setMobile("-");
-		defaultUser.setPassword(passwordEncoder.encode("password"));
-		defaultUser.setRole("ROLE_DOCTOR");
 		defaultUser.setCreateYear("-");
 		userRepository.save(defaultUser);
 	}
