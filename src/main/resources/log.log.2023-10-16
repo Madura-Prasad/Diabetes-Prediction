@@ -1,0 +1,4 @@
+[2023-10-16 01:54:08,932] http-nio-8080-exec-2 com.diabetesPrediction.Controller.frontPageController 90 INFO   - Displayed the list of 2
+[2023-10-16 01:54:11,094] http-nio-8080-exec-8 com.diabetesPrediction.Controller.frontPageController 121 INFO   - Displayed doctor details for doctor with ID: 2 for user: maduraprasa00@gmail.com
+[2023-10-16 01:54:13,688] http-nio-8080-exec-1 com.diabetesPrediction.Controller.userController 87 INFO   - Accessed the booking details page for doctor with ID: 2 for user: maduraprasa00@gmail.com
+[2023-10-16 01:54:25,064] http-nio-8080-exec-7 com.diabetesPrediction.Controller.frontPageController 90 INFO   - Displayed the list of 2
