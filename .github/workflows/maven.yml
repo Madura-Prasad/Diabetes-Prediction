@@ -28,6 +28,6 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      working-directory: Diabetes-Prediction
+      working-directory: 
       run: mvn clean install -Dmaven.test.skip=true
 
