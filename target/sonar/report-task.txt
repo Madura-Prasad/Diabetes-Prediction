@@ -1,0 +1,6 @@
+projectKey=com.diabetesPrediction:Diabetes-Prediction
+serverUrl=http://localhost:9000
+serverVersion=8.9.10.61524
+dashboardUrl=http://localhost:9000/dashboard?id=com.diabetesPrediction%3ADiabetes-Prediction
+ceTaskId=AYtB6ElUKxJ8Vzo44Mfi
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYtB6ElUKxJ8Vzo44Mfi

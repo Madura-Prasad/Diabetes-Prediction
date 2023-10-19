@@ -93,6 +93,7 @@
                                             <th>Doctor Name</th>
                                             <th>Doctor Email</th>
                                             <th>Doctor Specialist</th>
+                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -103,6 +104,17 @@
                                             <td th:text="${appointment.doctorName}"></td>
                                             <td th:text="${appointment.doctorEmail}"></td>
                                             <td th:text="${appointment.doctorSpecificAre}"></td>
+                                            <td>
+											<div th:if="${appointment.status == 'Approved'}">
+												<span class="custom-badge status-green">Approved</span>
+											</div>
+											<div th:if="${appointment.status == 'Declined'}">
+												<span class="custom-badge status-red">Declined</span>
+											</div>
+											<div th:if="${appointment.status == ''}">
+												<span>Not Updated</span>
+											</div>
+										</td>
                                         </tr>
                                     </tbody>
                                 </table>
